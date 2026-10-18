@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>The AI-Ready Business Analyst | Business Analyst Services</title>
+<meta name="description" content="Free 15-page report: the 7 points in the BA lifecycle where AI saves real time, and the guardrails that keep the BA in control.">
+<meta property="og:title" content="The AI-Ready Business Analyst">
+<meta property="og:description" content="7 points in the BA lifecycle where AI earns its place. Free report from Business Analyst Services.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<style>
+/* BAS brand system: navy brand, teal signature accent, orange for the single CTA, Arial, square corners */
+:root{
+  --navy:#1F3A5F; --navy-deep:#14284A; --navy-mid:#34557C; --navy-soft:#3E6189;
+  --teal:#4DB8B8; --teal-tint:#CDEDED; --orange:#F5A04A;
+  --slate:#5A6B7D; --ink:#1F3A5F; --surface:#FFFFFF; --surface-alt:#F4F6F8;
+  --line:#DDE3EA; --line-strong:#C9D3DE; --on-navy:#FFFFFF;
+  --sans:Arial,Helvetica,"Liberation Sans",sans-serif; --mono:"Courier New",Courier,monospace;
+  --s1:4px; --s2:8px; --s3:16px; --s4:24px; --s5:40px; --s6:64px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--surface);color:var(--ink);font:15px/23px var(--sans)}
+img{max-width:100%;display:block}
+[hidden]{display:none!important}
+h1,h2,h3,p{margin:0}
+h1,h2{text-wrap:balance}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(var(--s5),env(safe-area-inset-left,0px));padding-right:max(var(--s5),env(safe-area-inset-right,0px))}
+@media (max-width:600px){.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}}
+
+/* eyebrow: teal capitals with a short teal rule */
+.eyebrow{display:flex;align-items:center;gap:10px;font:700 11px/14px var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--navy)}
+.eyebrow::before{content:"";width:28px;height:2px;background:var(--teal);flex:none}
+.on-navy .eyebrow{color:var(--teal)}
+/* two-line headline: light setup, bold payoff */
+.headline{font-weight:400;color:var(--navy)}
+.headline b{display:block;font-weight:700}
+.on-navy .headline{color:var(--on-navy)}
+
+/* header */
+.top{border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);padding-block:12px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--navy)}
+.brand img{width:48px;height:48px}
+.brand span{font:700 15px/20px var(--sans)}
+.brand small{display:block;font:400 9px/12px var(--sans);letter-spacing:.25em;text-transform:uppercase;color:var(--slate)}
+.top a.link{color:var(--navy);font-weight:700;font-size:14px}
+
+/* hero */
+.hero{background:var(--navy);color:var(--on-navy);position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:var(--s5);padding-block:var(--s6);position:relative;z-index:1}
+.hero h1{font-size:clamp(32px,4.6vw,46px);line-height:1.12;margin-top:var(--s4)}
+.hero .sub{color:#D5DEE8;font-size:17px;line-height:26px;margin-top:var(--s4);max-width:34em}
+.goal{margin-top:var(--s4);color:var(--teal);font-weight:700;font-size:16px}
+.stats{display:grid;grid-template-columns:repeat(4,auto);justify-content:start;gap:var(--s5);margin-top:var(--s5);padding-top:var(--s4);border-top:1px solid var(--navy-soft)}
+.stats div{min-width:0}
+.stats strong{display:block;font-size:28px;line-height:32px}
+.stats span{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:#C3CFDC}
+.numeral{position:absolute;right:-20px;bottom:-60px;font:700 300px/1 var(--sans);color:transparent;-webkit-text-stroke:2px var(--navy-soft);pointer-events:none;user-select:none}
+
+/* form card */
+form,.done{background:var(--surface);color:var(--ink);padding:28px;display:grid;gap:14px;border-top:4px solid var(--teal);align-self:start}
+form h2,.done h2{font-size:22px;line-height:28px}
+label{font-weight:700;font-size:13px;display:grid;gap:6px}
+input,select{font:15px var(--sans);padding:11px 12px;border:1px solid var(--line-strong);border-radius:2px;background:var(--surface);color:var(--ink)}
+input:focus-visible,select:focus-visible,a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.btn{font:700 16px var(--sans);background:var(--orange);color:var(--navy-deep);border:0;border-radius:2px;padding:14px 20px;cursor:pointer;text-decoration:none;text-align:center;display:inline-block}
+.btn:hover{filter:brightness(1.06)}
+.btn-navy{background:var(--navy);color:var(--on-navy)}
+.fine{font-size:12px;line-height:17px;color:var(--slate)}
+.err{color:#B3261E;font-size:13px}
+
+/* sections */
+section{padding-block:var(--s6)}
+.alt{background:var(--surface-alt)}
+section h2{font-size:clamp(26px,3.2vw,32px);line-height:1.2;margin-top:var(--s3)}
+.lede{color:var(--slate);margin-top:var(--s3);max-width:42em;font-size:16px;line-height:25px}
+.grid{display:grid;gap:var(--s3);margin-top:var(--s5)}
+.g7{grid-template-columns:repeat(4,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g5{grid-template-columns:repeat(5,1fr)}
+.card{background:var(--surface);border:1px solid var(--line);padding:var(--s4);display:grid;gap:var(--s2);align-content:start;min-width:0}
+.alt .card{background:var(--surface)}
+.card .num{font:700 12px var(--sans);letter-spacing:.2em;color:var(--slate)}
+.card h3{font-size:15px;line-height:20px}
+.card p{font-size:13px;line-height:19px;color:var(--slate)}
+.card.navy{background:var(--navy);border-color:var(--navy);color:var(--on-navy)}
+.card.navy p{color:#C3CFDC}
+.card.navy .num{color:var(--teal)}
+.card.cta{border:2px solid var(--orange)}
+.meta{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--slate);font-weight:700}
+pre{margin:var(--s4) 0 0;background:var(--navy-deep);color:#E6EDF4;padding:var(--s4);white-space:pre-wrap;font:13px/20px var(--mono);overflow-x:auto}
+.guard{margin-top:var(--s3);display:flex;gap:10px;align-items:baseline;font-size:14px}
+.chip{font:700 10px var(--sans);letter-spacing:.15em;text-transform:uppercase;background:var(--teal);color:var(--navy-deep);padding:3px 8px;flex:none}
+
+/* course band */
+.course-band{background:var(--navy);color:var(--on-navy);position:relative;overflow:hidden}
+.course-band .card{background:var(--navy-mid);border-color:var(--navy-soft);color:var(--on-navy)}
+.course-band .card p{color:#D5DEE8}
+.course-band .card .num{color:var(--teal)}
+.course-band .lede{color:#D5DEE8}
+.course-band .row{display:flex;flex-wrap:wrap;gap:var(--s3);align-items:center;margin-top:var(--s5)}
+.course-band .row .fine{color:#C3CFDC}
+
+/* author */
+.author{display:grid;grid-template-columns:auto 1fr;gap:var(--s5);align-items:center}
+.ring{width:120px;height:120px;border-radius:9999px;border:2px solid var(--navy);display:grid;place-items:center;font:700 34px var(--sans);color:var(--navy)}
+.author p{margin-top:var(--s3);color:var(--slate);max-width:44em}
+
+details{border-bottom:1px solid var(--line);padding-block:var(--s3)}
+summary{font-weight:700;cursor:pointer}
+details p{color:var(--slate);margin-top:var(--s2);max-width:46em}
+
+/* teal footer band */
+footer{background:var(--teal);color:var(--navy-deep)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:var(--s3);padding-block:var(--s3)}
+footer .tag{display:flex;align-items:center;gap:12px;font-size:10px;letter-spacing:.25em;text-transform:uppercase;font-weight:700}
+footer img{width:32px;height:32px}
+footer a{color:var(--navy-deep)}
+
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr}
+  .g7,.g4{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:1fr}
+  .g5{grid-template-columns:repeat(2,1fr)}
+  .stats{grid-template-columns:repeat(2,auto)}
+  .numeral{font-size:200px}
+}
+@media (max-width:520px){
+  .g7,.g4,.g5{grid-template-columns:1fr}
+  .author{grid-template-columns:1fr}
+  .top a.link{display:none}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="https://business-analyst.services/">
+      <img src="assets/bas-logo.webp" alt="Business Analyst Services logo" width="48" height="48">
+      <span>Business Analyst Services<small>Practice leadership · Training · Advisory</small></span>
+    </a>
+    <a class="link" href="#get-report">Get the free report</a>
+  </div>
+</header>
+
+<main>
+  <div class="hero on-navy">
+    <div class="numeral" aria-hidden="true">07</div>
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Free report for business analysts</p>
+        <h1 class="headline">AI won't replace business analysts. <b>BAs who use it well will.</b></h1>
+        <p class="sub">The AI-Ready Business Analyst shows the 7 points in the BA lifecycle where AI saves real time, and the guardrails that keep your work safe.</p>
+        <p class="goal">Goal: speed up the drafting. Keep the BA in control.</p>
+        <div class="stats">
+          <div><strong>7</strong><span>Lifecycle stages</span></div>
+          <div><strong>7</strong><span>Copy-ready prompts</span></div>
+          <div><strong>1</strong><span>Guardrail checklist</span></div>
+          <div><strong>15</strong><span>Pages</span></div>
+        </div>
+      </div>
+      <div id="get-report">
+        <form id="f" novalidate>
+          <p class="eyebrow">Free download</p>
+          <h2>Send me the report</h2>
+          <label for="fn">First name<input id="fn" name="first_name" autocomplete="given-name" required></label>
+          <label for="em">Work email<input id="em" name="email" type="email" autocomplete="email" required></label>
+          <label for="role">Which describes you best?
+            <select id="role" name="segment" required>
+              <option value="">Choose one</option>
+              <option value="seg-ba">I'm a business analyst</option>
+              <option value="seg-lead">I lead a BA team</option>
+              <option value="seg-gov">I'm responsible for AI governance</option>
+            </select>
+          </label>
+          <p class="err" id="err" hidden>Please fill in all three fields with a valid email.</p>
+          <button class="btn" type="submit">Send me the report</button>
+          <p class="fine">We'll email you the report and occasional BA insights. Unsubscribe any time.</p>
+        </form>
+        <div class="done" id="done" hidden>
+          <p class="eyebrow">Report on its way</p>
+          <h2>Check your inbox in the next 2 minutes.</h2>
+          <p>Want to go further? The next <strong>Practical AI for End-to-End Business Analysis</strong> cohort starts February 2027, with 20 seats.</p>
+          <a class="btn btn-navy" href="https://calendar.app.google/Mrs8mmZiXxxb3pta6" target="_blank" rel="noopener">Book a 20-minute course-fit call</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">What's inside</p>
+      <h2 class="headline">Seven stages, <b>one practical lens</b></h2>
+      <p class="lede">Each chapter covers one stage of BA work: the task, where AI helps, what stays human, one prompt to try and one guardrail.</p>
+      <div class="grid g7">
+        <div class="card"><span class="num">01</span><h3>Discovery and stakeholders</h3><p>A stakeholder map from interview notes in minutes.</p></div>
+        <div class="card"><span class="num">02</span><h3>Process analysis</h3><p>Draft current-state maps from workshop notes.</p></div>
+        <div class="card"><span class="num">03</span><h3>Requirements and user stories</h3><p>First-draft stories and acceptance criteria.</p></div>
+        <div class="card"><span class="num">04</span><h3>Data and business rules</h3><p>Spot gaps and contradictions in the rules.</p></div>
+        <div class="card"><span class="num">05</span><h3>Testing and validation</h3><p>Test scenarios generated from stories.</p></div>
+        <div class="card"><span class="num">06</span><h3>Change and communication</h3><p>Messages tailored to each audience.</p></div>
+        <div class="card"><span class="num">07</span><h3>Benefits and evaluation</h3><p>Measures framed and reporting drafted.</p></div>
+        <div class="card navy"><span class="num">+</span><h3>The guardrail checklist</h3><p>One page to keep AI use safe, evidenced and reviewed.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <p class="eyebrow">A taste of chapter 1</p>
+      <h2 class="headline">One prompt <b>from the report</b></h2>
+      <pre>You are a senior business analyst. From the interview notes below, list each stakeholder, their role, what they care about most, their likely influence (high/medium/low) and any concerns they raised. Flag anything that contradicts another stakeholder. Use only what is in the notes.
+
+[Paste de-identified notes here]</pre>
+      <p class="guard"><span class="chip">Gate</span>Remove names and confidential details before using a public AI tool.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Who it's for</p>
+      <h2 class="headline">Written for the people <b>who own BA practice</b></h2>
+      <div class="grid g3">
+        <div class="card"><h3>Business analysts</h3><p>Use AI at every stage of your work and stay the expert in the room.</p></div>
+        <div class="card"><h3>BA leads and managers</h3><p>Give your team one method for AI use, with results you can measure.</p></div>
+        <div class="card"><h3>AI governance leads</h3><p>See what safe, evidenced AI use looks like in BA work.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="course-band on-navy">
+    <div class="numeral" aria-hidden="true">12</div>
+    <div class="wrap" style="position:relative;z-index:1">
+      <p class="eyebrow">The 12-week course</p>
+      <h2 class="headline">Practical AI for <b>end-to-end business analysis</b></h2>
+      <p class="lede">The report shows where AI fits. The course gives you 12 weeks of guided practice so you can use it in your real work.</p>
+      <div class="grid g4">
+        <div class="card"><span class="num">Weeks 1–3</span><h3>Foundations and guardrails</h3><p>Tools, prompting patterns, data handling, your personal AI policy.</p></div>
+        <div class="card"><span class="num">Weeks 4–6</span><h3>Discovery to requirements</h3><p>Stakeholders, process maps, user stories and acceptance criteria.</p></div>
+        <div class="card"><span class="num">Weeks 7–9</span><h3>Data, rules and testing</h3><p>Business rules, data analysis, test scenarios in Jira and Confluence.</p></div>
+        <div class="card"><span class="num">Weeks 10–12</span><h3>Change, benefits and agents</h3><p>Communications, benefits tracking, agentic workflows, capstone.</p></div>
+      </div>
+      <div class="row">
+        <a class="btn" href="https://calendar.app.google/Mrs8mmZiXxxb3pta6" target="_blank" rel="noopener">Book a 20-minute course-fit call</a>
+        <p class="fine">A$3,000 per person · 12 live sessions of 2 hours · February 2027 cohort, 20 seats · team rates for 5+</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap author">
+      <div class="ring" aria-hidden="true">CD</div>
+      <div>
+        <p class="eyebrow">About the author</p>
+        <h2>Chale Dodge</h2>
+        <p>Lead Business Analyst and Practice Lead at Business Analyst Services, Sydney. Author of <em>Business Analyst Practice Leadership, Volume 1</em> and creator of the course <em>Generative and Agentic AI for Business Analysts and Consultants</em>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <p class="eyebrow">All courses</p>
+      <h2 class="headline">Live virtual training <b>from BAS</b></h2>
+      <p class="lede">Prices in AUD.</p>
+      <div class="grid g5">
+        <div class="card cta"><span class="meta">Next cohort Feb 2027</span><h3>Practical AI for End-to-End Business Analysis</h3><p>12 weeks · A$3,000</p></div>
+        <div class="card"><h3>BA Leadership</h3><p>2 days · A$3,000<br>Build a BA practice that leaders fund.</p></div>
+        <div class="card"><h3>Agile BA</h3><p>2 days · A$1,500<br>Do BA well inside sprints.</p></div>
+        <div class="card"><h3>BA Playbooks</h3><p>1 day · A$1,000<br>12 ready-to-run playbooks for common BA situations.</p></div>
+        <div class="card"><h3>Agile Horizons</h3><p>1 day each · A$1,000<br>Strategy, Initiative and Delivery horizons.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Questions</p>
+      <h2>Before you download</h2>
+      <div style="margin-top:var(--s4)">
+        <details><summary>Is the report really free?</summary><p>Yes. Enter your details and it arrives by email. You can unsubscribe from follow-up emails at any time.</p></details>
+        <details><summary>Which AI tools does it cover?</summary><p>The prompts work in ChatGPT, Claude, Google Gemini and Microsoft Copilot.</p></details>
+        <details><summary>Is it relevant in government or regulated organisations?</summary><p>Yes. Every chapter includes a guardrail, and the checklist covers handling confidential data and recording AI use.</p></details>
+      </div>
+      <p style="margin-top:var(--s5)"><a class="btn btn-navy" href="#get-report">Get the free report</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="tag"><img src="assets/bas-badge-reversed.svg" alt="" width="32" height="32">BAS · AI-Ready BA</span>
+    <span class="tag">© 2026 Business Analyst Services · <a href="https://business-analyst.services/">business-analyst.services</a></span>
+  </div>
+</footer>
+
+<script>
+// GoHighLevel inbound webhook URL. Leave empty until the GHL workflow exists.
+var GHL_WEBHOOK_URL = '';
+
+document.getElementById('f').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var fn = document.getElementById('fn').value.trim();
+  var em = document.getElementById('em').value.trim();
+  var seg = document.getElementById('role').value;
+  var ok = fn && seg && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em);
+  document.getElementById('err').hidden = ok;
+  if (!ok) return;
+  var params = new URLSearchParams(location.search);
+  var payload = {
+    first_name: fn, email: em, segment: seg, page: location.origin + location.pathname,
+    utm_source: params.get('utm_source') || '', utm_medium: params.get('utm_medium') || '',
+    utm_campaign: params.get('utm_campaign') || '', utm_content: params.get('utm_content') || ''
+  };
+  if (GHL_WEBHOOK_URL) {
+    fetch(GHL_WEBHOOK_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload), keepalive: true }).catch(function () {});
+  }
+  if (window.gtag) gtag('event', 'generate_lead', { segment: seg });
+  this.hidden = true;
+  document.getElementById('done').hidden = false;
+});
+</script>
+</body>
+</html>
