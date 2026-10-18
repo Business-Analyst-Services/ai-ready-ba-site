@@ -1,6 +1,6 @@
 # AI-Ready BA landing page
 
-Lead-capture page for the free report *The AI-Ready Business Analyst* from Business Analyst Services. It is a static site: one `index.html`, plus logos in `assets/`. There is no build step.
+Lead-capture page for the free report *The AI-Ready Business Analyst* from Business Analyst Services. It is a static site: one `index.html`, plus logos in `assets/`. There is no build step. 
 
 ## Deploy
 
